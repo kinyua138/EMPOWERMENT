@@ -1,5 +1,5 @@
 // API Base URL - Update this with your deployed backend URL
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://your-render-backend.onrender.com';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://empowerment.onrender.com';
 
 // Initialize EmailJS
 emailjs.init(import.meta.env.VITE_EMAILJS_USER_ID || "YOUR_EMAILJS_USER_ID");
