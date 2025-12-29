@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eligibility - Empowerment Fund Kenya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --green: #1a472a;
+      --light-green: #2e7d32;
+      --gold: #ffd700;
+      --light-gold: #fff9e6;
+      --dark: #1a1a1a;
+      --bg: linear-gradient(135deg, #f8fff8 0%, #f0f7f0 100%);
+      --shadow: 0 15px 40px rgba(0,0,0,0.1);
+      --shadow-hover: 0 25px 60px rgba(47,93,58,0.2);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.7)),
+                  url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      padding: 4rem 1.5rem 6rem;
+      text-align: center;
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      text-shadow: 2px 4px 8px rgba(0,0,0,0.4);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .eligibility-section {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .eligibility-section h2 {
+      color: var(--green);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .eligibility-section h3 {
+      color: var(--light-green);
+      margin: 2rem 0 1rem;
+      font-size: 1.5rem;
+    }
+
+    .eligibility-section ul {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .eligibility-section li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .eligibility-section i {
+      color: var(--light-green);
+      margin-top: 0.2rem;
+    }
+
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(45deg, var(--green), var(--light-green));
+      color: white;
+      padding: 3rem;
+      border-radius: 20px;
+      margin-top: 3rem;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    .cta-section p {
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 3rem;
+      background: var(--gold);
+      color: var(--dark);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      text-align: left;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, var(--light-green), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--light-green);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      .eligibility-section { padding: 2rem; }
+      .cta-section { padding: 2rem; }
+      .footer-content { grid-template-columns: 1fr; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Eligibility Criteria</h1>
+    <p>Check if you qualify for World Bank-backed grants</p>
+  </header>
+
+  <section class="container">
+    <div class="eligibility-section">
+      <h2>Who Can Apply?</h2>
+      <p>Empowerment Fund Kenya grants are available to all eligible Kenyans across every county. Here's what you need to know:</p>
+
+      <h3>Basic Requirements</h3>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Must be a Kenyan citizen aged 18 years and above</li>
+        <li><i class="fas fa-check-circle"></i> Valid national ID or passport</li>
+        <li><i class="fas fa-check-circle"></i> Proof of residence in Kenya</li>
+        <li><i class="fas fa-check-circle"></i> Active bank account (for fund disbursement)</li>
+      </ul>
+
+      <h3>Business Requirements</h3>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Clear business plan or concept</li>
+        <li><i class="fas fa-check-circle"></i> Demonstrated need for funding</li>
+        <li><i class="fas fa-check-circle"></i> Commitment to business development</li>
+        <li><i class="fas fa-check-circle"></i> Willingness to participate in training programs</li>
+      </ul>
+
+      <h3>Grant-Specific Eligibility</h3>
+      <h4>Business Start-up Grants</h4>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> New business ventures</li>
+        <li><i class="fas fa-check-circle"></i> Innovative ideas with market potential</li>
+        <li><i class="fas fa-check-circle"></i> Individual entrepreneurs or groups</li>
+      </ul>
+
+      <h4>Business Boost Grants</h4>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Existing businesses facing challenges</li>
+        <li><i class="fas fa-check-circle"></i> Businesses affected by economic conditions</li>
+        <li><i class="fas fa-check-circle"></i> Enterprises needing expansion capital</li>
+      </ul>
+
+      <h4>Youth Innovation Fund</h4>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Ages 18-35 years</li>
+        <li><i class="fas fa-check-circle"></i> Technology and innovation focus</li>
+        <li><i class="fas fa-check-circle"></i> Youth-led initiatives</li>
+      </ul>
+    </div>
+
+    <div class="eligibility-section">
+      <h2>What Disqualifies an Application?</h2>
+      <ul>
+        <li><i class="fas fa-times-circle" style="color: #e74c3c;"></i> Non-Kenyan citizens</li>
+        <li><i class="fas fa-times-circle" style="color: #e74c3c;"></i> Individuals under 18 years</li>
+        <li><i class="fas fa-times-circle" style="color: #e74c3c;"></i> Incomplete or fraudulent applications</li>
+        <li><i class="fas fa-times-circle" style="color: #e74c3c;"></i> Businesses involved in illegal activities</li>
+        <li><i class="fas fa-times-circle" style="color: #e74c3c;"></i> Previous grant recipients who haven't met reporting requirements</li>
+      </ul>
+    </div>
+
+    <div class="eligibility-section">
+      <h2>Application Process</h2>
+      <ol style="margin-left: 2rem;">
+        <li style="margin-bottom: 1rem;"><strong>Online Application:</strong> Submit your application through our secure portal</li>
+        <li style="margin-bottom: 1rem;"><strong>Document Verification:</strong> Provide required identification and business documents</li>
+        <li style="margin-bottom: 1rem;"><strong>Review Process:</strong> Applications are reviewed within 48 hours</li>
+        <li style="margin-bottom: 1rem;"><strong>Approval & Funding:</strong> Successful applicants receive funds directly to their bank accounts</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to Apply?</h2>
+    <p>Check your eligibility and start your application today</p>
+    <a href="apply.html" class="cta-btn">
+      <span>Apply Now</span>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <div class="footer-logo">Empowerment Fund Kenya</div>
+        <p>World Bank-backed grants transforming Kenyan entrepreneurship.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="color: white; margin-bottom: 1.5rem;">Quick Links</h4>
+        <ul style="list-style: none; line-height: 2.5;">
+          <li><a href="apply.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Apply Now</a></li>
+          <li><a href="eligibility.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Eligibility</a></li>
+          <li><a href="faq.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">FAQ</a></li>
+          <li><a href="contact.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="color: white; margin-bottom: 1.5rem;">Contact Info</h4>
+        <p style="margin-bottom: 0.5rem;"><i class="fas fa-envelope" style="color: var(--light-green); margin-right: 10px;"></i> hello@reallygreatsite.com</p>
+        <p style="margin-bottom: 0.5rem;"><i class="fas fa-phone" style="color: var(--light-green); margin-right: 10px;"></i> +123-456-7890</p>
+        <p><i class="fas fa-map-marker-alt" style="color: var(--light-green); margin-right: 10px;"></i> Nairobi, Kenya</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+      <p>Empowerment Fund Kenya © 2025 • World Bank Partner Program</p>
+      <p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;">Building a better Kenya, one grant at a time.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ - Empowerment Fund Kenya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --green: #1a472a;
+      --light-green: #2e7d32;
+      --gold: #ffd700;
+      --light-gold: #fff9e6;
+      --dark: #1a1a1a;
+      --bg: linear-gradient(135deg, #f8fff8 0%, #f0f7f0 100%);
+      --shadow: 0 15px 40px rgba(0,0,0,0.1);
+      --shadow-hover: 0 25px 60px rgba(47,93,58,0.2);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.7)),
+                  url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      padding: 4rem 1.5rem 6rem;
+      text-align: center;
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      text-shadow: 2px 4px 8px rgba(0,0,0,0.4);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .faq-section {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .faq-section h2 {
+      color: var(--green);
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e0e0e0;
+      margin-bottom: 1rem;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--green);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      background: var(--light-gold);
+      border-radius: 10px;
+    }
+
+    .faq-question i {
+      color: var(--light-green);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-question.active i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1.5rem;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      background: var(--light-gold);
+      border-radius: 0 0 10px 10px;
+      margin-bottom: 1rem;
+    }
+
+    .faq-answer.show {
+      max-height: 500px;
+      padding: 1rem 1.5rem 1.5rem;
+    }
+
+    .faq-answer p {
+      margin-bottom: 1rem;
+    }
+
+    .faq-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-answer ul {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .faq-answer li {
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(45deg, var(--green), var(--light-green));
+      color: white;
+      padding: 3rem;
+      border-radius: 20px;
+      margin-top: 3rem;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    .cta-section p {
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 3rem;
+      background: var(--gold);
+      color: var(--dark);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      text-align: left;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, var(--light-green), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--light-green);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      .faq-section { padding: 2rem; }
+      .cta-section { padding: 2rem; }
+      .footer-content { grid-template-columns: 1fr; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Frequently Asked Questions</h1>
+    <p>Find answers to common questions about our grant programs</p>
+  </header>
+
+  <section class="container">
+    <div class="faq-section">
+      <h2>General Questions</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What is Empowerment Fund Kenya?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Empowerment Fund Kenya is a World Bank-backed initiative designed to provide grants to Kenyan entrepreneurs and businesses. Our mission is to promote economic growth and improve living standards by supporting startups and existing businesses across all 47 counties.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Who is eligible to apply?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Any Kenyan citizen aged 18 years and above can apply. We support individuals, groups, and businesses across all sectors and counties. Specific eligibility criteria may vary by grant type.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How much funding can I receive?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Funding amounts vary by grant type:</p>
+          <ul>
+            <li>Business Start-up: Up to KES 500,000</li>
+            <li>Business Boost: Up to KES 1,000,000</li>
+            <li>Youth Innovation Fund: Up to KES 750,000</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Is the application process free?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, applying for grants through Empowerment Fund Kenya is completely free. There are no application fees, processing fees, or hidden costs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Application Process</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How do I apply for a grant?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>The application process is simple and online:</p>
+          <ol>
+            <li>Check your eligibility on our website</li>
+            <li>Complete the online application form</li>
+            <li>Submit required documents</li>
+            <li>Wait for review (typically within 48 hours)</li>
+            <li>Receive approval and funding if successful</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What documents do I need to submit?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Required documents typically include:</p>
+          <ul>
+            <li>National ID or passport</li>
+            <li>Proof of residence</li>
+            <li>Bank account details</li>
+            <li>Business plan or concept description</li>
+            <li>Additional documents may be required based on grant type</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How long does the approval process take?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>We strive to review all applications within 48 hours. Successful applicants receive their funding directly to their bank accounts within 7-10 business days after approval.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I apply for multiple grants?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, you can apply for different grant types if you meet the eligibility criteria. However, you can only receive one grant at a time. Previous grant recipients must complete their reporting requirements before applying for additional funding.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Grant Management</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What can I use the grant money for?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Grant funds can be used for legitimate business purposes including:</p>
+          <ul>
+            <li>Purchasing equipment and supplies</li>
+            <li>Marketing and advertising</li>
+            <li>Working capital</li>
+            <li>Training and capacity building</li>
+            <li>Business expansion activities</li>
+          </ul>
+          <p>Funds cannot be used for personal expenses, debt repayment, or illegal activities.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Do I have to repay the grant?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>No, our grants are non-repayable. They are designed to support business growth and do not need to be returned. However, recipients are required to submit progress reports and may participate in training programs.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What reporting requirements are there?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Grant recipients are required to:</p>
+          <ul>
+            <li>Submit quarterly progress reports</li>
+            <li>Participate in mandatory training sessions</li>
+            <li>Maintain proper financial records</li>
+            <li>Report on business performance metrics</li>
+          </ul>
+          <p>These requirements help us ensure funds are used effectively and provide support for your business success.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Support & Contact</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How can I get help with my application?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>We offer multiple support channels:</p>
+          <ul>
+            <li>Email: hello@reallygreatsite.com</li>
+            <li>Phone: +123-456-7890 (Mon-Fri, 8AM-6PM EAT)</li>
+            <li>WhatsApp: +123-456-7890</li>
+            <li>Visit our office in Nairobi</li>
+          </ul>
+          <p>Our support team is available during business hours and responds to inquiries within 24 hours.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What if I have a complaint or concern?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>We take feedback seriously. If you have concerns about the application process, grant management, or our services, please contact our support team immediately. We investigate all complaints and work to resolve issues promptly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Still Have Questions?</h2>
+    <p>Can't find what you're looking for? Get in touch with our support team</p>
+    <a href="contact.html" class="cta-btn">
+      <span>Contact Support</span>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <div class="footer-logo">Empowerment Fund Kenya</div>
+        <p>World Bank-backed grants transforming Kenyan entrepreneurship.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="color: white; margin-bottom: 1.5rem;">Quick Links</h4>
+        <ul style="list-style: none; line-height: 2.5;">
+          <li><a href="apply.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Apply Now</a></li>
+          <li><a href="eligibility.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Eligibility</a></li>
+          <li><a href="faq.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">FAQ</a></li>
+          <li><a href="contact.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="color: white; margin-bottom: 1.5rem;">Contact Info</h4>
+        <p style="margin-bottom: 0.5rem;"><i class="fas fa-envelope" style="color: var(--light-green); margin-right: 10px;"></i> hello@reallygreatsite.com</p>
+        <p style="margin-bottom: 0.5rem;"><i class="fas fa-phone" style="color: var(--light-green); margin-right: 10px;"></i> +123-456-7890</p>
+        <p><i class="fas fa-map-marker-alt" style="color: var(--light-green); margin-right: 10px;"></i> Nairobi, Kenya</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+      <p>Empowerment Fund Kenya © 2025 • World Bank Partner Program</p>
+      <p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;">Building a better Kenya, one grant at a time.</p>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ accordion functionality
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
+
+        // Close all other answers
+        document.querySelectorAll('.faq-answer.show').forEach(openAnswer => {
+          if (openAnswer !== answer) {
+            openAnswer.classList.remove('show');
+            openAnswer.parentElement.querySelector('.faq-question').classList.remove('active');
+          }
+        });
+
+        // Toggle current answer
+        answer.classList.toggle('show');
+        button.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>

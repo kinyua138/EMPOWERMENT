@@ -1,0 +1,19 @@
+{
+  "name": "empowerment-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Empowerment Loan Website",
+  "scripts": {
+    "build": "echo 'No build step required for static site'",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "empowerment",
+    "loans",
+    "frontend"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^14.2.5"
+  }
+}

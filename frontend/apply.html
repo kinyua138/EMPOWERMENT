@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply for Loan - Empowerment Loans</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="bg-primary text-white text-center py-4">
+    <div class="container">
+      <h1>Apply for Your Empowerment Loan</h1>
+      <p>Fill out the form below to start your journey</p>
+    </div>
+  </header>
+
+  <!-- Amount Selection Section -->
+  <section class="amount-selection py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <h2 class="text-center mb-4">Choose Your Loan Amount</h2>
+          <p class="text-center text-muted mb-5">Select from our popular loan packages or enter a custom amount</p>
+
+          <div class="row" id="amountOptions">
+            <div class="col-md-3 mb-3">
+              <div class="card amount-card" data-amount="5000">
+                <div class="card-body text-center">
+                  <div class="amount-icon mb-3">
+                    <i class="fas fa-seedling fa-2x text-success"></i>
+                  </div>
+                  <h5 class="card-title">KES 5,000</h5>
+                  <p class="card-text">Perfect for starting small businesses, buying equipment, or restocking inventory.</p>
+                  <small class="text-muted">6-month term</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="card amount-card" data-amount="15000">
+                <div class="card-body text-center">
+                  <div class="amount-icon mb-3">
+                    <i class="fas fa-store fa-2x text-primary"></i>
+                  </div>
+                  <h5 class="card-title">KES 15,000</h5>
+                  <p class="card-text">Ideal for expanding your business, marketing campaigns, or purchasing machinery.</p>
+                  <small class="text-muted">9-month term</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="card amount-card" data-amount="30000">
+                <div class="card-body text-center">
+                  <div class="amount-icon mb-3">
+                    <i class="fas fa-rocket fa-2x text-warning"></i>
+                  </div>
+                  <h5 class="card-title">KES 30,000</h5>
+                  <p class="card-text">Great for major business expansions, hiring staff, or large equipment purchases.</p>
+                  <small class="text-muted">12-month term</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="card amount-card custom-amount" id="customAmountCard">
+                <div class="card-body text-center">
+                  <div class="amount-icon mb-3">
+                    <i class="fas fa-edit fa-2x text-info"></i>
+                  </div>
+                  <h5 class="card-title">Custom Amount</h5>
+                  <p class="card-text">Need a different amount? Enter your preferred loan amount below.</p>
+                  <input type="number" class="form-control mt-3" id="customAmount" placeholder="Enter amount (KES)" min="1000" max="50000">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+              <h3 class="card-title mb-0"><i class="fas fa-clipboard-list me-2"></i>Loan Application Details</h3>
+            </div>
+            <div class="card-body">
+              <form id="loanForm">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="firstName" class="form-label">First Name *</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="lastName" class="form-label">Last Name *</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label">Email Address *</label>
+                    <input type="email" class="form-control" id="email" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="phone" class="form-label">Phone Number *</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="0712345678 or 254712345678" required>
+                    <small class="form-text text-muted">Enter 9 digits or full format with 254</small>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="purpose" class="form-label">Business Purpose & Description *</label>
+                  <textarea class="form-control" id="purpose" rows="4" placeholder="Describe your business idea, how you'll use the loan, and your repayment plan..." required></textarea>
+                </div>
+                <input type="hidden" id="amount" name="amount" required>
+
+                <!-- Payment Information -->
+                <div class="payment-info mb-4 p-3 bg-light rounded">
+                  <h5><i class="fas fa-info-circle me-2"></i>Payment Information</h5>
+                  <ul class="mb-0">
+                    <li>You'll receive an M-Pesa payment prompt immediately after submission</li>
+                    <li>Payment must be completed within 5 minutes to secure your loan</li>
+                    <li>All transactions are secured with bank-level encryption</li>
+                    <li>Loan approval is subject to our review process</li>
+                  </ul>
+                </div>
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-success btn-lg px-5" id="submitBtn">
+                    <i class="fas fa-paper-plane me-2"></i>Submit Application
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+      <p>&copy; 2023 Empowerment Loans. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

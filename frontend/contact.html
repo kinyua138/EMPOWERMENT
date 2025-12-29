@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Empowerment Fund Kenya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --green: #1a472a;
+      --light-green: #2e7d32;
+      --gold: #ffd700;
+      --light-gold: #fff9e6;
+      --dark: #1a1a1a;
+      --bg: linear-gradient(135deg, #f8fff8 0%, #f0f7f0 100%);
+      --shadow: 0 15px 40px rgba(0,0,0,0.1);
+      --shadow-hover: 0 25px 60px rgba(47,93,58,0.2);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.7)),
+                  url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      padding: 4rem 1.5rem 6rem;
+      text-align: center;
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      text-shadow: 2px 4px 8px rgba(0,0,0,0.4);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+
+    .contact-info {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info h2 {
+      color: var(--green);
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--light-gold);
+      border-radius: 10px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      color: var(--light-green);
+      margin-top: 0.2rem;
+    }
+
+    .contact-item h3 {
+      color: var(--green);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form h2 {
+      color: var(--green);
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--light-green);
+      box-shadow: 0 0 0 3px rgba(46,125,50,0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1.2rem;
+      background: linear-gradient(45deg, var(--green), var(--light-green));
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .office-hours {
+      background: linear-gradient(45deg, var(--green), var(--light-green));
+      color: white;
+      padding: 3rem;
+      border-radius: 20px;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .office-hours h2 {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    .office-hours p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .hours-item {
+      background: rgba(255,255,255,0.1);
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+
+    .hours-item h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      text-align: left;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, var(--light-green), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--light-green);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 992px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      .contact-info, .contact-form { padding: 2rem; }
+      .office-hours { padding: 2rem; }
+      .footer-content { grid-template-columns: 1fr; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contact Us</h1>
+    <p>Get in touch with our team for support and assistance</p>
+  </header>
+
+  <section class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Get In Touch</h2>
+
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h3>Email Us</h3>
+            <p>hello@reallygreatsite.com</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">We respond within 24 hours</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h3>Call Us</h3>
+            <p>+123-456-7890</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Mon-Fri, 8AM-6PM EAT</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h3>Visit Us</h3>
+            <p>Nairobi, Kenya</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">World Bank Partner Office</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-whatsapp"></i>
+          <div>
+            <h3>WhatsApp Support</h3>
+            <p>+123-456-7890</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Quick responses for urgent queries</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h2>Send us a Message</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <select id="subject" name="subject" required>
+              <option value="">Select a subject</option>
+              <option value="application">Application Support</option>
+              <option value="eligibility">Eligibility Questions</option>
+              <option value="technical">Technical Issues</option>
+              <option value="feedback">Feedback & Suggestions</option>
+              <option value="partnership">Partnership Inquiries</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" required placeholder="Please describe your inquiry in detail..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="office-hours">
+      <h2>Office Hours</h2>
+      <p>We're here to help during these hours</p>
+
+      <div class="hours-grid">
+        <div class="hours-item">
+          <h3>Monday - Friday</h3>
+          <p>8:00 AM - 6:00 PM EAT</p>
+        </div>
+        <div class="hours-item">
+          <h3>Saturday</h3>
+          <p>9:00 AM - 2:00 PM EAT</p>
+        </div>
+        <div class="hours-item">
+          <h3>Sunday</h3>
+          <p>Closed</p>
+        </div>
+        <div class="hours-item">
+          <h3>Public Holidays</h3>
+          <p>Closed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <div class="footer-logo">Empowerment Fund Kenya</div>
+        <p>World Bank-backed grants transforming Kenyan entrepreneurship.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="color: white; margin-bottom: 1.5rem;">Quick Links</h4>
+        <ul style="list-style: none; line-height: 2.5;">
+          <li><a href="apply.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Apply Now</a></li>
+          <li><a href="eligibility.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Eligibility</a></li>
+          <li><a href="faq.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">FAQ</a></li>
+          <li><a href="contact.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="color: white; margin-bottom: 1.5rem;">Contact Info</h4>
+        <p style="margin-bottom: 0.5rem;"><i class="fas fa-envelope" style="color: var(--light-green); margin-right: 10px;"></i> hello@reallygreatsite.com</p>
+        <p style="margin-bottom: 0.5rem;"><i class="fas fa-phone" style="color: var(--light-green); margin-right: 10px;"></i> +123-456-7890</p>
+        <p><i class="fas fa-map-marker-alt" style="color: var(--light-green); margin-right: 10px;"></i> Nairobi, Kenya</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+      <p>Empowerment Fund Kenya © 2025 • World Bank Partner Program</p>
+      <p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;">Building a better Kenya, one grant at a time.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Form submission handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Simple form validation
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Success message (in a real application, this would send the data to a server)
+      alert('Thank you for your message! We will get back to you within 24 hours.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

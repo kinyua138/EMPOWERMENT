@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: empowerment-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false
+      - key: DARAJA_CONSUMER_KEY
+        sync: false
+      - key: DARAJA_CONSUMER_SECRET
+        sync: false
+      - key: DARAJA_BUSINESS_SHORTCODE
+        sync: false
+      - key: DARAJA_PASSKEY
+        sync: false
+      - key: DARAJA_CALLBACK_URL
+        sync: false
+      - key: DARAJA_ENVIRONMENT
+        value: production
+      - key: BUSINESS_OWNER
+        sync: false
+      - key: BUSINESS_PHONE
+        sync: false
+      - key: BUSINESS_EMAIL
+        sync: false
+      - key: BASE_URL
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false

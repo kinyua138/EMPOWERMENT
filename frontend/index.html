@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empowerment Fund Kenya - World Bank Grants</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --green: #1a472a;
+      --light-green: #2e7d32;
+      --gold: #ffd700;
+      --light-gold: #fff9e6;
+      --dark: #1a1a1a;
+      --bg: linear-gradient(135deg, #f8fff8 0%, #f0f7f0 100%);
+      --accent: #ff6b35;
+      --shadow: 0 15px 40px rgba(0,0,0,0.1);
+      --shadow-hover: 0 25px 60px rgba(47,93,58,0.2);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    }
+    
+    * { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: #333;
+      line-height: 1.7;
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    /* Animated Background Elements */
+    .bg-shape-1 {
+      position: fixed;
+      top: 10%;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(46,125,50,0.05) 0%, transparent 70%);
+      z-index: -1;
+      animation: float 20s infinite ease-in-out;
+    }
+    
+    .bg-shape-2 {
+      position: fixed;
+      bottom: 10%;
+      right: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,215,0,0.04) 0%, transparent 70%);
+      z-index: -1;
+      animation: float 25s infinite ease-in-out reverse;
+    }
+    
+    /* Header with Enhanced Visuals */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.7)), 
+                  url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      padding: 6rem 1.5rem 8rem;
+      position: relative;
+      text-align: center;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+    
+    .header-badge {
+      background: linear-gradient(45deg, var(--green), var(--light-green));
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+    
+    .world-bank-logo {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 1rem;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      text-shadow: 2px 4px 8px rgba(0,0,0,0.4);
+      background: linear-gradient(to right, #fff, #ffd700);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: slideInFromTop 1s ease-out;
+    }
+    
+    header p {
+      max-width: 800px;
+      font-size: 1.3rem;
+      margin-bottom: 3rem;
+      opacity: 0.95;
+      animation: fadeInUp 1s ease-out 0.5s both;
+    }
+    
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--gold);
+      display: block;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    /* Enhanced CTA Button */
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 3rem;
+      background: linear-gradient(45deg, var(--green), var(--light-green));
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      animation: bounceIn 1s ease-out 1s both;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .hero-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, var(--light-green), var(--green));
+      z-index: -1;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .hero-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .hero-btn:hover::before {
+      opacity: 1;
+    }
+    
+    .hero-btn i {
+      transition: transform 0.3s ease;
+    }
+    
+    .hero-btn:hover i {
+      transform: translateX(5px);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 5rem 1.5rem;
+      position: relative;
+    }
+    
+    /* Section Title Enhancement */
+    .section-title {
+      color: var(--green);
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .section-title::before {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(45deg, var(--green), var(--light-green));
+      border-radius: 2px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 700px;
+      margin: 2rem auto 3rem;
+    }
+    
+    /* Enhanced Grant Cards */
+    .grants {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--green), var(--light-green), var(--gold));
+      z-index: 2;
+    }
+    
+    .card-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      z-index: 3;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-15px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .card:hover img {
+      transform: scale(1.1);
+    }
+    
+    .card .content {
+      padding: 2rem;
+      position: relative;
+    }
+    
+    .card h3 {
+      color: var(--green);
+      margin: 0 0 1rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .card-icon {
+      font-size: 3.5rem;
+      color: var(--light-green);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      padding: 1rem;
+      background: rgba(46,125,50,0.1);
+      border-radius: 50%;
+    }
+    
+    .card-features {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    
+    .card-features li {
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .card-features i {
+      color: var(--light-green);
+      font-size: 0.9rem;
+    }
+    
+    /* About Section Enhancement */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      background: white;
+      padding: 4rem;
+      border-radius: 25px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, var(--light-green), transparent);
+      border-radius: 50%;
+      transform: translate(100px, -100px);
+    }
+    
+    .mission-highlight {
+      background: linear-gradient(135deg, var(--light-gold), #fff);
+      border-left: 4px solid var(--gold);
+      padding: 2rem;
+      border-radius: 10px;
+      margin: 2rem 0;
+      position: relative;
+    }
+    
+    .mission-highlight i {
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      background: var(--gold);
+      color: var(--dark);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    
+    /* Testimonials Enhancement */
+    .testimonials {
+      background: linear-gradient(135deg, #fff 0%, #f9fff9 100%);
+      padding: 6rem 0;
+      position: relative;
+      clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+    }
+    
+    .testimonial-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba(46,125,50,0.1);
+      font-family: serif;
+      line-height: 1;
+    }
+    
+    .testimonial-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+      border: 3px solid var(--light-green);
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+    
+    /* Trust Badges */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin: 4rem 0;
+      flex-wrap: wrap;
+    }
+    
+    .badge {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: var(--transition);
+    }
+    
+    .badge:hover {
+      transform: translateY(-5px);
+    }
+    
+    .badge i {
+      font-size: 2rem;
+      color: var(--light-green);
+    }
+    
+    /* Footer Enhancement */
+    footer {
+      background: linear-gradient(135deg, var(--dark) 0%, #1a1a1a 100%);
+      color: white;
+      padding: 5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+    }
+    
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--green), var(--light-green), var(--gold));
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      text-align: left;
+    }
+    
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, var(--light-green), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background: var(--light-green);
+      transform: translateY(-3px);
+    }
+    
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    @keyframes slideInFromTop {
+      from { opacity: 0; transform: translateY(-60px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes bounceIn {
+      0% { opacity: 0; transform: scale(0.3); }
+      50% { opacity: 1; transform: scale(1.05); }
+      70% { transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    
+    .stagger-animation > * {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-animation > *:nth-child(2) { animation-delay: 0.3s; }
+    .stagger-animation > *:nth-child(3) { animation-delay: 0.5s; }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      header h1 { font-size: 2.8rem; }
+      .about { grid-template-columns: 1fr; }
+      .grants { grid-template-columns: 1fr; }
+    }
+    
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      header p { font-size: 1.1rem; }
+      .section-title { font-size: 2.2rem; }
+      .hero-stats { gap: 2rem; }
+      .trust-badges { flex-direction: column; align-items: center; }
+    }
+    
+    @media (max-width: 480px) {
+      header { padding: 4rem 1rem 6rem; }
+      header h1 { font-size: 1.8rem; }
+      .hero-btn { padding: 1rem 2rem; }
+      .about { padding: 2rem; }
+      .container { padding: 3rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Shapes -->
+  <div class="bg-shape-1"></div>
+  <div class="bg-shape-2"></div>
+
+  <header>
+    <div class="header-badge">
+      <i class="fas fa-shield-alt"></i> WORLD BANK BACKED • TRUSTED • SECURE
+    </div>
+    
+    <div class="world-bank-logo">
+      <i class="fas fa-globe-africa fa-2x"></i>
+    </div>
+    
+    <h1>World Bank–Backed Grants That Turn Ideas Into Businesses</h1>
+    
+    <p>Apply for startup and business-boost grants available to all Kenyans aged 18+ across every county.</p>
+    
+    <a href="apply.html" class="hero-btn">
+      <span>Apply Now</span>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+    
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">10,000+</span>
+        <span class="stat-label">Businesses Funded</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">KES 5B+</span>
+        <span class="stat-label">Grants Distributed</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">47</span>
+        <span class="stat-label">Counties Reached</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">96%</span>
+        <span class="stat-label">Success Rate</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="container">
+    <h2 class="section-title">What We Offer</h2>
+    <p class="section-subtitle">
+      Clear, dignified, and accessible grants funded by World Bank programs. Our application process is fast, transparent,
+      and designed to support real people building real solutions.
+    </p>
+
+    <div class="grants stagger-animation">
+      <div class="card">
+        <div class="card-badge">HOT OPPORTUNITY</div>
+        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Startup">
+        <div class="content">
+          <div class="card-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Business Start‑up</h3>
+          <p>Grants to kick‑start new businesses for individuals and groups.</p>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> Up to KES 500,000 funding</li>
+            <li><i class="fas fa-check-circle"></i> No collateral required</li>
+            <li><i class="fas fa-check-circle"></i> Training included</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-badge">POPULAR</div>
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Boost">
+        <div class="content">
+          <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Business Boost</h3>
+          <p>Support for existing businesses facing financial challenges.</p>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> Up to KES 1,000,000 funding</li>
+            <li><i class="fas fa-check-circle"></i> Quick approval process</li>
+            <li><i class="fas fa-check-circle"></i> Business mentorship</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-badge">YOUTH FOCUS</div>
+        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Youth Innovation">
+        <div class="content">
+          <div class="card-icon"><i class="fas fa-users"></i></div>
+          <h3>Youth Innovation Fund</h3>
+          <p>Exclusive grants for youth aged 18–35 years.</p>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> Up to KES 750,000 funding</li>
+            <li><i class="fas fa-check-circle"></i> Tech & innovation focus</li>
+            <li><i class="fas fa-check-circle"></i> Networking opportunities</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <div class="container">
+    <div class="trust-badges">
+      <div class="badge">
+        <i class="fas fa-lock"></i>
+        <div>
+          <h4>Secure Application</h4>
+          <p>Bank-level security</p>
+        </div>
+      </div>
+      <div class="badge">
+        <i class="fas fa-clock"></i>
+        <div>
+          <h4>Fast Processing</h4>
+          <p>Decisions in 48 hours</p>
+        </div>
+      </div>
+      <div class="badge">
+        <i class="fas fa-star"></i>
+        <div>
+          <h4>No Hidden Fees</h4>
+          <p>No hidden fees</p>
+        </div>
+      </div>
+      <div class="badge">
+        <i class="fas fa-headset"></i>
+        <div>
+          <h4>24/7 Support</h4>
+          <p>Always here to help</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="container about">
+    <div class="stagger-animation">
+      <h2 class="section-title">About Us</h2>
+      <p><strong>Empowerment Fund Kenya</strong> is powered by World Bank grant programs, focused on rapid and equitable distribution.</p>
+      <p>
+        This platform is a simple, dignified engine — a clear path from hope to funding. It is designed to be accessible,
+        fast, and trustworthy, giving eligible Kenyans the confidence to apply and dare to build.
+      </p>
+
+      <div class="mission-highlight">
+        <i class="fas fa-bullseye"></i>
+        <h3>Empowering Community</h3>
+        <p>
+          Empowerment Fund Kenya aims to promote economic growth and improve the living standards of Kenyan people.
+          The initiative responds to challenges such as drought, famine, and economic instability by rolling out
+          structured grant programs that strengthen local enterprises.
+        </p>
+        <p>
+          Grants are available to all Kenyans above 18 years, with an annual allocation supporting startups and existing
+          businesses facing financial challenges.
+        </p>
+      </div>
+
+      <h3 style="color: var(--green); margin-top: 2rem;">Our Mission</h3>
+      <p>
+        Stay ahead of the curve with insights into innovation and sustainability. We support modern solutions such as
+        data‑driven decision making, smart systems, and green technologies that transform how businesses and farms operate.
+      </p>
+    </div>
+    <div>
+      <img src="WhatsApp Image 2025-12-29 at 08.51.54.jpeg" alt="Sustainable Farming" style="width: 100%; border-radius: 15px; box-shadow: var(--shadow);">
+      
+      <div style="margin-top: 2rem; padding: 2rem; background: linear-gradient(135deg, var(--green), var(--light-green)); color: white; border-radius: 15px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50px; right: -50px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+        <h3 style="margin-top: 0; font-size: 1.5rem; position: relative;">Sustainable Farming Grants</h3>
+        <p style="margin-bottom: 0; opacity: 0.95; position: relative;">
+          Specialized funding for agricultural innovation. Modernize your farm with our dedicated support program.
+        </p>
+        <div style="position: absolute; bottom: 20px; right: 20px; background: var(--gold); color: var(--dark); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+          <i class="fas fa-leaf"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">What Our Beneficiaries Say</h2>
+      <p class="section-subtitle">Real stories from real entrepreneurs we've helped succeed</p>
+      
+      <div class="grants">
+        <div class="testimonial-card">
+          <p>"The grant helped me start my vegetable farm. Now I feed my community and employ 5 locals!"</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1494790108755-2616b786d4d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Mary" class="testimonial-avatar">
+            <div>
+              <cite style="font-weight: 600; color: var(--green);">Mary Wanjiku</cite><br>
+              <span style="font-size: 0.9rem; color: #666;">Nakuru • Agri-business</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <p>"Youth Innovation Fund turned my app idea into a business. Thank you for believing in young entrepreneurs!"</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Kelvin" class="testimonial-avatar">
+            <div>
+              <cite style="font-weight: 600; color: var(--green);">Kelvin Mutua</cite><br>
+              <span style="font-size: 0.9rem; color: #666;">Nairobi • Tech Startup</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <p>"Business Boost saved my tailoring shop during tough times. Now we're thriving and expanding!"</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Grace" class="testimonial-avatar">
+            <div>
+              <cite style="font-weight: 600; color: var(--green);">Grace Achieng</cite><br>
+              <span style="font-size: 0.9rem; color: #666;">Kisumu • Fashion Business</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">Empowerment Fund Kenya</div>
+          <p>World Bank–backed grants transforming Kenyan entrepreneurship.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 style="color: white; margin-bottom: 1.5rem;">Quick Links</h4>
+          <ul style="list-style: none; line-height: 2.5;">
+            <li><a href="apply.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Apply Now</a></li>
+            <li><a href="eligibility.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Eligibility</a></li>
+            <li><a href="faq.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">FAQ</a></li>
+            <li><a href="contact.html" style="color: #ccc; text-decoration: none; transition: color 0.3s;">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="color: white; margin-bottom: 1.5rem;">Contact Info</h4>
+          <p style="margin-bottom: 0.5rem;"><i class="fas fa-envelope" style="color: var(--light-green); margin-right: 10px;"></i> hello@reallygreatsite.com</p>
+          <p style="margin-bottom: 0.5rem;"><i class="fas fa-phone" style="color: var(--light-green); margin-right: 10px;"></i> +123‑456‑7890</p>
+          <p><i class="fas fa-map-marker-alt" style="color: var(--light-green); margin-right: 10px;"></i> Nairobi, Kenya</p>
+        </div>
+      </div>
+      
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+        <p>Empowerment Fund Kenya © 2025 • World Bank Partner Program</p>
+        <p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;">Building a better Kenya, one grant at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.stagger-animation > *').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
